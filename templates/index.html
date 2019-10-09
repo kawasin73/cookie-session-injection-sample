@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>cookie-session-sample</title>
+    <meta charset="utf8" />
+  </head>
+  <body>
+    <p>hello world</p>
+    <form action="/form" method="POST">
+      <input type="text" name="sample" value="value1">
+      <input type="submit">
+    </form>
+    <button onclick="fetchValue()">fetchValue</button>
+    <button onclick="getCookie()">getCookie</button>
+    <button onclick="getInvalid()">getInvalid</button>
+    <script type="text/javascript">
+      function fetchValue() {
+        console.log("hello world");
+        fetch('/value').then(function(response) {
+          return response.text()
+        }).then(function(body) {
+          console.log(body);
+        });
+      }
+
+      function getCookie() {
+        console.log("cookie :", document.cookie);
+      }
+    </script>
+    <script src="http://invalid.local:5000/static/js/main.js"></script>
+  </body>
+</html>
